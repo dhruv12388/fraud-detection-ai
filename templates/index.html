@@ -30,7 +30,7 @@
             resDiv.innerText = "🔍 Analyzing...";
             
             try {
-                const response = await fetch('http://127.0.0.1:8000/predict?amount=${amount}&hour=${hour}', { method: 'POST' });
+                const response = await fetch('/predict?amount='+amount+'&hour='+ hour,{ method: 'POST' });
                 const data = await response.json();
                 resDiv.innerText = data.result;
                 resDiv.style.color = data.result.includes('🚨') ? 'red' : 'green';
@@ -40,4 +40,5 @@
         }
     </script>
 </body>
+
 </html>
